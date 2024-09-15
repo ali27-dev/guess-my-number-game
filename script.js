@@ -22,12 +22,20 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (gusse === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number';
   } else if (gusse > secretNumber) {
-    document.querySelector('.message').textContent = '📈 Too high!';
-    score--;
-    document.querySelector('.').textContent = score;
+    if (score > 0) {
+      document.querySelector('.message').textContent = '📈 Too high!';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = '💥 You lose the game ';
+    }
   } else if (gusse < secretNumber) {
-    document.querySelector('.message').textContent = '📉 Too low!';
-    score--;
-    document.querySelector('.').textContent = score;
+    if (score > 0) {
+      document.querySelector('.message').textContent = '📈 Too low!';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = '💥 You lose the game ';
+    }
   }
 });
