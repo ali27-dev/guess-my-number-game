@@ -16,11 +16,14 @@ document.querySelector('.number').textContent = secretNumber;
 document.querySelector('.check').addEventListener('click', function () {
   const gusse = Number(document.querySelector('.guess').value);
   console.log(gusse, typeof gusse);
-
+  // when there is no input
   if (!gusse) {
     document.querySelector('.message').textContent = '⛔️ No Number!';
+    // when player wins
   } else if (gusse === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number';
+
+    // when gusse is too high
   } else if (gusse > secretNumber) {
     if (score > 0) {
       document.querySelector('.message').textContent = '📈 Too high!';
@@ -29,6 +32,7 @@ document.querySelector('.check').addEventListener('click', function () {
     } else {
       document.querySelector('.message').textContent = '💥 You lose the game ';
     }
+    // when gusse is too low
   } else if (gusse < secretNumber) {
     if (score > 0) {
       document.querySelector('.message').textContent = '📈 Too low!';
