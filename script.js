@@ -11,6 +11,7 @@
 
 const secretNumber = Math.trunc(Math.random() * 20 + 1);
 let score = 20;
+let highScore = 0;
 // document.querySelector('.number').textContent = secretNumber;
 document.querySelector('.check').addEventListener('click', function () {
   let gusse = Number(document.querySelector('.guess').value);
@@ -25,6 +26,10 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = secretNumber;
 
+    if (score > highScore) {
+      highScore = score;
+      document.querySelector('.highscore').textContent = highScore;
+    }
     // when gusse is too high
   } else if (gusse > secretNumber) {
     if (score > 0) {
@@ -58,7 +63,7 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.number').style.width = '15rem';
   document.querySelector('.number').textContent = '?';
   score--;
-  document.querySelector('.score').textContent = '20';
+  document.querySelector('.score').textContent = 20;
   // document.querySelector('.gusse').textContent = '';
 });
 
